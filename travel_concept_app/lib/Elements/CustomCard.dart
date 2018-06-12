@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class CustomCard extends StatelessWidget {
 
-  final String image;
+  final String imageURL;
   final VoidCallback onTap;
 
-  CustomCard(this.image, this.onTap);
+  CustomCard(this.imageURL, this.onTap);
 
   @override
   Widget build(BuildContext context) {
@@ -14,11 +14,15 @@ class CustomCard extends StatelessWidget {
       onTap: onTap,
       child: new Card(
         color: Colors.white,
-        child: new Image(
-          fit: BoxFit.fill,
-          image: new AssetImage(image),
+        child: new Container(
           height: 150.0,
           width: 150.0,
+          decoration: new BoxDecoration(
+            image: new DecorationImage(
+                image: new NetworkImage(imageURL),
+                fit: BoxFit.fill
+            )
+          ),
         ),
       )
     );
