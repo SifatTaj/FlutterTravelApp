@@ -46,6 +46,13 @@ class NewTabState extends State<NewTab> {
     if (data == null) loading = true;
     this.getData();
   }
+  
+  void onTapCard(String imageURL) {
+    Navigator.of(context).push(
+        new MaterialPageRoute(
+            builder: (BuildContext context) =>
+            new DetailsPage(imageURL)));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -72,14 +79,12 @@ class NewTabState extends State<NewTab> {
                         children: <Widget>[
                           new myCard.CustomCard(
                               data["new"]["top"][index]["img"],
-                              () => Navigator.of(context).push(
-                                  new MaterialPageRoute(
-                                      builder: (BuildContext context) =>
-                                          new DetailsPage()))),
+                              () => onTapCard(data["new"]["top"][index]["img"])),
                           new Container(
                               width: 150.0,
                               child: new label.CardLabel(
-                                  data["new"]["top"][index]["desc"]))
+                                  data["new"]["top"][index]["desc"])
+                          )
                         ],
                       );
                     })),
@@ -100,14 +105,12 @@ class NewTabState extends State<NewTab> {
                         children: <Widget>[
                           new myCard.CustomCard(
                               data["new"]["recents"][index]["img"],
-                              () => Navigator.of(context).push(
-                                  new MaterialPageRoute(
-                                      builder: (BuildContext context) =>
-                                          new DetailsPage()))),
+                              () => onTapCard(data["new"]["recents"][index]["img"])),
                           new Container(
                               width: 150.0,
                               child: new label.CardLabel(
-                                  data["new"]["recents"][index]["desc"]))
+                                  data["new"]["recents"][index]["desc"])
+                          )
                         ],
                       );
                     })),

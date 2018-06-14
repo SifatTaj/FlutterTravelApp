@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 class ImageOverlayView extends StatefulWidget {
 
@@ -45,7 +46,11 @@ class ImageOverlayViewState extends State<ImageOverlayView> with SingleTickerPro
                 padding: EdgeInsets.all(0.0),
                 height: imageAnimation.value * 300.0,
                 width: imageAnimation.value * 300.0,
-                child: new Image(image: AssetImage("assets/marina.jpg")),
+                child: new FadeInImage.memoryNetwork(
+                  placeholder: kTransparentImage,
+                  image: widget._image,
+                  fit: BoxFit.fill,
+                )
               ),
             ),
             new Padding(

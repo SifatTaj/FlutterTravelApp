@@ -5,12 +5,16 @@ import '../Elements/ImageOvelayView.dart' as overlay;
 
 class DetailsPage extends StatefulWidget {
 
+  final String imageURL;
+
+  DetailsPage(this.imageURL);
+
   @override
   DetailsPageState createState() => new DetailsPageState();
 }
 
 class DetailsPageState extends State<DetailsPage> with SingleTickerProviderStateMixin{
-
+  
   TabController tabController;
 
   @override
@@ -113,7 +117,7 @@ class DetailsPageState extends State<DetailsPage> with SingleTickerProviderState
                   new Container(
                     width: gridWidth * .55,
                     height: gridWidth * .55,
-                    child: new myCard.CustomCard('assets/marina.jpg', () => showOverlay('assets/marina.jpg')),
+                    child: new myCard.CustomCard(widget.imageURL, () => showOverlay(widget.imageURL)),
                   ),
                   new Container(
                       height: gridWidth * .55,
@@ -122,7 +126,7 @@ class DetailsPageState extends State<DetailsPage> with SingleTickerProviderState
                         children: <Widget>[
                           new Container(
                             height: (gridWidth * .55)/3,
-                            child: new myCard.CustomCard('assets/marina.jpg', () => showOverlay('assets/marina.jpg')),
+                            child: new myCard.CustomCard(widget.imageURL, () => showOverlay(widget.imageURL)),
                           ),
                           new Container(
                               height: (gridWidth * .55)/3,
@@ -130,11 +134,11 @@ class DetailsPageState extends State<DetailsPage> with SingleTickerProviderState
                                 children: <Widget>[
                                   new Container(
                                     width: (gridWidth * .35)/2,
-                                    child: new myCard.CustomCard('assets/marina.jpg', () => showOverlay('assets/marina.jpg')),
+                                    child: new myCard.CustomCard(widget.imageURL, () => showOverlay(widget.imageURL)),
                                   ),
                                   new Container(
                                     width: (gridWidth * .35)/2,
-                                    child: new myCard.CustomCard('assets/marina.jpg', () => showOverlay('assets/marina.jpg')),
+                                    child: new myCard.CustomCard(widget.imageURL, () => showOverlay(widget.imageURL)),
                                   )
                                 ],
                               )
@@ -145,11 +149,11 @@ class DetailsPageState extends State<DetailsPage> with SingleTickerProviderState
                                 children: <Widget>[
                                   new Container(
                                     width: (gridWidth * .35)/2,
-                                    child: new myCard.CustomCard('assets/marina.jpg', () => showOverlay('assets/marina.jpg')),
+                                    child: new myCard.CustomCard(widget.imageURL, () => showOverlay(widget.imageURL)),
                                   ),
                                   new Container(
                                     width: (gridWidth * .35)/2,
-                                    child: new myCard.CustomCard('assets/marina.jpg', () => {}),
+                                    child: new myCard.CustomCard(widget.imageURL, () => {}),
                                   )
                                 ],
                               )
@@ -199,7 +203,7 @@ class DetailsPageState extends State<DetailsPage> with SingleTickerProviderState
               )
           ),
         ),
-        overlayVisibility == true ? new overlay.ImageOverlayView(imageLink, () => hideOverlay()) : new Container(),
+        overlayVisibility == true ? new overlay.ImageOverlayView(widget.imageURL, () => hideOverlay()) : new Container(),
       ],
     );
   }
