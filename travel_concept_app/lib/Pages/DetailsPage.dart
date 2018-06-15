@@ -126,6 +126,7 @@ class DetailsPageState extends State<DetailsPage> with SingleTickerProviderState
                         children: <Widget>[
                           new Container(
                             height: (gridWidth * .55)/3,
+                            width: gridWidth * .35,
                             child: new myCard.CustomCard(widget.imageURL, () => showOverlay(widget.imageURL)),
                           ),
                           new Container(
@@ -133,10 +134,12 @@ class DetailsPageState extends State<DetailsPage> with SingleTickerProviderState
                               child: new Row(
                                 children: <Widget>[
                                   new Container(
+                                    height: (gridWidth * .55)/3,
                                     width: (gridWidth * .35)/2,
                                     child: new myCard.CustomCard(widget.imageURL, () => showOverlay(widget.imageURL)),
                                   ),
                                   new Container(
+                                    height: (gridWidth * .55)/3,
                                     width: (gridWidth * .35)/2,
                                     child: new myCard.CustomCard(widget.imageURL, () => showOverlay(widget.imageURL)),
                                   )
@@ -148,10 +151,12 @@ class DetailsPageState extends State<DetailsPage> with SingleTickerProviderState
                               child: new Row(
                                 children: <Widget>[
                                   new Container(
+                                    height: (gridWidth * .55)/3,
                                     width: (gridWidth * .35)/2,
                                     child: new myCard.CustomCard(widget.imageURL, () => showOverlay(widget.imageURL)),
                                   ),
                                   new Container(
+                                    height: (gridWidth * .55)/3,
                                     width: (gridWidth * .35)/2,
                                     child: new myCard.CustomCard(widget.imageURL, () => {}),
                                   )

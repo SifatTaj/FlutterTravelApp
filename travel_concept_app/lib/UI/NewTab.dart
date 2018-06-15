@@ -46,7 +46,7 @@ class NewTabState extends State<NewTab> {
     if (data == null) loading = true;
     this.getData();
   }
-  
+
   void onTapCard(String imageURL) {
     Navigator.of(context).push(
         new MaterialPageRoute(
@@ -77,9 +77,13 @@ class NewTabState extends State<NewTab> {
                     itemBuilder: (BuildContext context, int index) {
                       return new Column(
                         children: <Widget>[
-                          new myCard.CustomCard(
-                              data["new"]["top"][index]["img"],
-                              () => onTapCard(data["new"]["top"][index]["img"])),
+                          new Container(
+                            height: 150.0,
+                            width: 150.0,
+                            child: new myCard.CustomCard(
+                                data["new"]["top"][index]["img"],
+                                    () => onTapCard(data["new"]["top"][index]["img"])),
+                          ),
                           new Container(
                               width: 150.0,
                               child: new label.CardLabel(
@@ -103,9 +107,13 @@ class NewTabState extends State<NewTab> {
                     itemBuilder: (BuildContext context, int index) {
                       return new Column(
                         children: <Widget>[
-                          new myCard.CustomCard(
-                              data["new"]["recents"][index]["img"],
-                              () => onTapCard(data["new"]["recents"][index]["img"])),
+                          new Container(
+                            height: 150.0,
+                            width: 150.0,
+                            child: new myCard.CustomCard(
+                                data["new"]["recents"][index]["img"],
+                                    () => onTapCard(data["new"]["recents"][index]["img"])),
+                          ),
                           new Container(
                               width: 150.0,
                               child: new label.CardLabel(
